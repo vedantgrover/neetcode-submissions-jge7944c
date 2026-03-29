@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        std::unordered_map<int, int> differences;
+
+        for (int i = 0; i < nums.size(); ++i) {
+            int difference = target - nums[i];
+
+            if (differences.count(difference) > 0) {
+                return {differences[difference], i};
+            } else {
+                differences[nums[i]] = i;
+            }
+        }
+
+        return {};
+    }
+};
